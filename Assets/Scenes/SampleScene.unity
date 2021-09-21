@@ -181,7 +181,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1687258585}
   - component: {fileID: 1687258584}
-  - component: {fileID: 1687258582}
   - component: {fileID: 1687258583}
   - component: {fileID: 1687258586}
   - component: {fileID: 1687258587}
@@ -192,14 +191,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1687258582
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687258581}
-  m_Enabled: 1
 --- !u!114 &1687258583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +332,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +502,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thrid Person Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6728455198054329623, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000008940697
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728455198054329623, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728455198054329623, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9669868
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728455198054329623, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.25482655
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728455198054329623, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000005587935
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728455198054329623, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 9.3132246e-10
+      objectReference: {fileID: 0}
     - target: {fileID: 6728455198819909326, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00000016391277
@@ -499,11 +536,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6728455198819909326, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000024214387
+      value: 0.000000009313226
       objectReference: {fileID: 0}
     - target: {fileID: 6728455198819909326, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007916242
+      value: -0.0000000027939677
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728455198878266061, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00000008940697
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728455198878266061, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: 6728455198878266061, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000023283064
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41cbb003e941aff4a93911f4bf426763, type: 3}
