@@ -14,8 +14,10 @@ public class ThirdPersonFlightMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
+        float rotateLeft = Input.GetAxisRaw("RotateLeft");
+        float rotateRight = Input.GetAxisRaw("RotateRight");
 
-        Vector3 rotation = new Vector3(-vertical * rotationSpeed * Time.deltaTime, horizontal * rotationSpeed * Time.deltaTime, 0).normalized;
+        Vector3 rotation = new Vector3(-vertical * rotationSpeed * Time.deltaTime, horizontal * rotationSpeed * Time.deltaTime, (rotateLeft-rotateRight) * rotationSpeed * Time.deltaTime).normalized;
 
         transform.Rotate(rotation);
 
