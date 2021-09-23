@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class GrabReleaseScript : MonoBehaviour
 {
-    public Transform player;
-
-    public Transform playerCam;
-
-    public float throwForce = 5;
+    public Transform grabSource;
 
     bool hasPlayer = false;
 
@@ -18,11 +14,9 @@ public class GrabReleaseScript : MonoBehaviour
     void Update()
     {
         float dist =
-            Vector3.Distance(gameObject.transform.position, player.position);
+            Vector3.Distance(gameObject.transform.position, grabSource.position);
 
-        Debug.Log("dist: " + dist);
-
-        if (dist < 10f)
+        if (dist < 7f)
         {
             hasPlayer = true;
         }
@@ -33,13 +27,16 @@ public class GrabReleaseScript : MonoBehaviour
 
         if (hasPlayer && Input.GetButtonDown("Use"))
         {
-            GetComponent<Rigidbody>().isKinematic = false;
-            transform.parent = playerCam;
+            GetComponent<Rigidbody>().isKinematic = true;
+            transform.parent = grabSource;            
             beingCarried = true;
         }
 
         if (beingCarried)
         {
+            transform.position = grabSource.position;
+            transform.rotation = grabSource.rotation;
+
             if (Input.GetMouseButtonDown(0))
             {
                 GetComponent<Rigidbody>().isKinematic = false;
