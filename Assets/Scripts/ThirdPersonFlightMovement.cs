@@ -6,7 +6,7 @@ public class ThirdPersonFlightMovement : MonoBehaviour
 {
     public CharacterController controller;
    
-    public float speed = 0.5f;
+    public float speed = 2f;
     public float rotationSpeed = 5000f;
 
     // Update is called once per frame
