@@ -1,3 +1,6 @@
+# Exclude Unity's logs to prevent merge conflicts SHNY-60
+[Ll]ogs/
+
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
