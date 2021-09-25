@@ -17,6 +17,7 @@ filters = {
 }
 scopes = {
 	"last_search.AB59B443" = "physics"
+	"last_search.00000000" = ""
 }
 providers = {
 	asset = {
