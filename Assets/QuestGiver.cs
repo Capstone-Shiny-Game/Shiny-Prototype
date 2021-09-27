@@ -12,8 +12,9 @@ public class QuestGiver : MonoBehaviour
     bool thisQuest = false; 
 
     public GameObject Panel;
-
-   // public int numSelectors = 5;
+    public GameObject Finish;
+    public GameObject Spawner;
+    // public int numSelectors = 5;
     public GameObject[] selectorArr;
 
 
@@ -62,18 +63,26 @@ public class QuestGiver : MonoBehaviour
         float dist1 =
            Vector3.Distance(gameObject.transform.position, ItemtoDeliver.position);
 
-        if (dist1 < 50f && thisQuest==false)
+        if (dist1 < 100f && thisQuest==false)
         {
             
-            if (Panel != null)
+            if (Finish != null)
             {
-              //  Panel.SetActive(true);
+                 Finish.SetActive(true);
+                if (Spawner != null)
+                {
+                    Spawner.SetActive(true);
+                
+                }
+
             }
             thisQuest = true;
         }
        
         // public Player player; 
     }
+
+
     IEnumerator waiter()
     {
         yield return new WaitForSeconds(3f);

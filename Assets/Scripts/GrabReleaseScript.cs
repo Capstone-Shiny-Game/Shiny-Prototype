@@ -16,7 +16,7 @@ public class GrabReleaseScript : MonoBehaviour
         float dist =
             Vector3.Distance(gameObject.transform.position, grabSource.position);
 
-        if (dist < 7f)
+        if (dist < 100f)
         {
             hasPlayer = true;
         }
