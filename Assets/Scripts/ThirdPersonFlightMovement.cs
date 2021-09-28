@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class ThirdPersonFlightMovement : MonoBehaviour
 {
-    public CharacterController controller;    
+    public CharacterController controller;
+    public Transform cam;
 
-    public float speed = 2f;
-    public float walkSpeed = 500f;
+    public float flySpeed = 2f;
+    public float walkSpeed = 2f;
     public float rotationSpeed = 5000f;
     private bool isFlying = false;
-    private Quaternion startingRotation;
-
-    void Start()
-    {
-        startingRotation = transform.rotation;
-    }
-
+    public float turnSmoothTime = 0.1f;
+    private float turnSmoothVelocity;
 
     // Update is called once per frame
     void Update()
@@ -31,7 +27,6 @@ public class ThirdPersonFlightMovement : MonoBehaviour
             }
             else
             {
-                transform.rotation = startingRotation;
                 GetComponent<Rigidbody>().useGravity = true;
             }
         }
@@ -58,19 +53,23 @@ public class ThirdPersonFlightMovement : MonoBehaviour
 
         transform.Rotate(rotation);
 
-        controller.Move(transform.forward * speed * Time.deltaTime);
+        controller.Move(transform.forward * flySpeed * Time.deltaTime);
     }
 
     private void Walk()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
-        Vector3 direction = new Vector3(-horizontal, 0f, -vertical).normalized;
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if(direction.magnitude >= 0.1f)
         {
-            controller.Move(direction * walkSpeed * Time.deltaTime);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized * walkSpeed * Time.deltaTime);
         }
     }
 }
