@@ -69,6 +69,7 @@ public class QuestGiver : MonoBehaviour
             if (Finish != null)
             {
                  Finish.SetActive(true);
+
                 if (Spawner != null)
                 {
                     Spawner.SetActive(true);
@@ -77,6 +78,7 @@ public class QuestGiver : MonoBehaviour
 
             }
             thisQuest = true;
+            StartCoroutine(waiting());
         }
        
         // public Player player; 
@@ -87,6 +89,12 @@ public class QuestGiver : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         isDialogue = false;
+        Panel.SetActive(false); 
     }
 
+    IEnumerator waiting()
+    {
+        yield return new WaitForSeconds(3f);
+        Finish.SetActive(false);
+    }
 }
