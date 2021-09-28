@@ -25,24 +25,23 @@ public class GrabReleaseScript : MonoBehaviour
             hasPlayer = false;
         }
 
-        if (hasPlayer && Input.GetButtonDown("Use"))
-        {
-            GetComponent<Rigidbody>().isKinematic = true;
-            transform.parent = grabSource;            
-            beingCarried = true;
-        }
-
         if (beingCarried)
         {
             transform.position = grabSource.position;
             transform.rotation = grabSource.rotation;
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetButtonDown("Use"))
             {
                 GetComponent<Rigidbody>().isKinematic = false;
                 transform.parent = null;
                 beingCarried = false;
             }
+        }
+        else if (hasPlayer && Input.GetButtonDown("Use"))
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+            transform.parent = grabSource;            
+            beingCarried = true;
         }
     }
 }
